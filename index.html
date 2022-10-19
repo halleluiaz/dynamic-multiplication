@@ -19,24 +19,27 @@ Purpose:
   </head>
   <body>
       <h1>Dynamic Multiplication Table</h1>
+      <div class="wrapper">
+          <p>Welcome! By inputing some integers below, you'll be able to create a custom muliplication table.</p>
+          <p id="requirements">NOTE: The form will only accept integers from -50 to 50. All fields are required.</p>
 
-      <p>Welcome! By inputing some integers below, you'll be able to create a custom muliplication table. The form will accept integers from -50 to 50.</p>
-
-      <form id="table-creation">
-          <fieldset>
-              <legend>Multiplier Range(Horizontal Axis)</legend>
-              <label for="multiplier-min">Minimum</label>
-              <input type="number" name="multiplier-min" min="-50" max="50">
-              <label for="multiplier-max">Maximum</label>
-              <input type="number" name="multiplier-max" min="-50" max="50">
-          </fieldset>
-          <fieldset>
-              <legend>Multiplicand Range(Vertical Axis)</legend>
-              <label for="multiplicand-min">Minimum</label>
-              <input type="number" name="multiplicand-min" min="-50" max="50">
-              <label for="multiplicand-max">Maximum</label>
-              <input type="number" name="multiplicand-max" min="-50" max="50">
-          </fieldset>
-      </form>
+          <form id="table-creation">
+              <fieldset>
+                  <legend>Multiplier Range(Horizontal Axis)</legend>
+                  <label for="multiplier-min">Minimum</label>
+                  <input type="number" name="multiplier-min" min="-50" max="50">
+                  <label for="multiplier-max">Maximum</label>
+                  <input type="number" name="multiplier-max" min="-50" max="50">
+              </fieldset>
+              <fieldset>
+                  <legend>Multiplicand Range(Vertical Axis)</legend>
+                  <label for="multiplicand-min">Minimum</label>
+                  <input type="number" name="multiplicand-min" min="-50" max="50">
+                  <label for="multiplicand-max">Maximum</label>
+                  <input type="number" name="multiplicand-max" min="-50" max="50">
+              </fieldset>
+              <input type="submit" value="Create Your Table">
+          </form>
+     </div>
   </body>
 </html>
