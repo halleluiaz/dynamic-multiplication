@@ -5,11 +5,26 @@ Halleluia Zeyohannes, UMass Lowell Computer Science,
 halleluia_zeyohannes@student.uml.edu
 Copyright (c) 2022 by Halleluia Zeyohannes. All rights reserved. May be freely
 copied or excerpted for educational purposes with credit to the author.
-updated by HZ on October 19, 2022 at 4PM
+updated by HZ on October 19, 2022 at 2PM
 
 Purpose:
 */
 
+function validate()
+{
+    validForm = false;
+
+    multiplierMin = document.getElementById("multiplier-min").value;
+    multiplierMax = document.getElementById("multiplier-max").value;
+    if(multiplierMin > multiplierMax)
+    {
+        error = document.getElementById("multiplier-error");
+        error.textContent = "ERROR: The minimum must be less than or equal to the maximum";
+        console.log(multiplierMin, " ,", multiplierMax);
+    }
+
+    return false;
+}
 function generateTable(multiplierMin, multiplierMax, multiplicandMin, multiplicandMax)
 {
     var table = document.createElement('table');
@@ -57,5 +72,3 @@ function generateTable(multiplierMin, multiplierMax, multiplicandMin, multiplica
 
     return table
 }
-
-// need form validation
