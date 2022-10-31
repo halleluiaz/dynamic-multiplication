@@ -5,7 +5,7 @@ Halleluia Zeyohannes, UMass Lowell Computer Science,
 halleluia_zeyohannes@student.uml.edu
 Copyright (c) 2022 by Halleluia Zeyohannes. All rights reserved. May be freely
 copied or excerpted for educational purposes with credit to the author.
-updated by HZ on October 19, 2022 at 4PM
+updated by HZ on October 31, 2022 at 1PM
 
 Purpose:
 -->
@@ -15,7 +15,7 @@ Purpose:
     <meta charset="utf-8">
     <title>Dynamic Multiplication Table</title>
     <link rel="stylesheet" href="css/style.css">
-    <!--<script src="js/script.js"></script>-->
+    <script src="js/script.js"></script>
   </head>
   <body>
       <h1>Dynamic Multiplication Table</h1>
@@ -27,16 +27,16 @@ Purpose:
               <fieldset>
                   <legend>Multiplier Range(Horizontal Axis)</legend>
                   <label for="multiplier-min">Minimum</label>
-                  <input type="number" name="multiplier-min" min="-50" max="50">
+                  <input type="number" name="multiplier-min" min="-50" max="50" required>
                   <label for="multiplier-max">Maximum</label>
-                  <input type="number" name="multiplier-max" min="-50" max="50">
+                  <input type="number" name="multiplier-max" min="-50" max="50" required>
               </fieldset>
               <fieldset>
                   <legend>Multiplicand Range(Vertical Axis)</legend>
                   <label for="multiplicand-min">Minimum</label>
-                  <input type="number" name="multiplicand-min" min="-50" max="50">
+                  <input type="number" name="multiplicand-min" min="-50" max="50" required>
                   <label for="multiplicand-max">Maximum</label>
-                  <input type="number" name="multiplicand-max" min="-50" max="50">
+                  <input type="number" name="multiplicand-max" min="-50" max="50" required>
               </fieldset>
               <input type="submit" value="Create Your Table">
           </form>
