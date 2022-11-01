@@ -29,6 +29,17 @@ function validate(multiplierMin, multiplierMax, multiplicandMin, multiplicandMax
         multiplierError.textContent = "";
         valid = true;   
     }
+    if(isNaN(multiplierMin))
+    {
+        document.getElementById('multiplier-min').focus();
+        multiplierError.textContent = "This field must be a numerical number &isin [-50, 50].";
+        valid = false;
+    }
+    else
+    {
+        multiplierError.textContent = "";
+        valid = true;   
+    }
     if(multiplierMax == "")
     {
         multiplierError.textContent = "This field is required.";
@@ -69,7 +80,7 @@ function buildTable()
     var minY = document.getElementById('multiplicand-min').value;
     var maxY = document.getElementById('multiplicand-max').value;
 
-    /*var accept = validate(horizMin, horizMax, vertMin, vertMax);
+    /*var accept = validate(minX, maxX, minY, maxY);
     if(accept == false)
     {
         return;
@@ -97,7 +108,7 @@ function buildTable()
             {
                 if(headerY == true)
                 {
-                    table += "<th>" + row + "</th";
+                    table += "<th>" + row + "</th>";
                     
                 }
                 else
@@ -113,4 +124,6 @@ function buildTable()
     }
     table += "</table>";
     document.getElementById('multiplication-table').innerHTML = table;
+
+    event.preventDefault();
 }
