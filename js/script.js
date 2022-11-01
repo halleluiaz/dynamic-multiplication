@@ -11,44 +11,37 @@ Purpose:
 */
 function validate(multiplierMin, multiplierMax, multiplicandMin, multiplicandMax)
 {
-    //console.log("Multiplier: ", multiplierMin, " to ", multiplierMax);
-    //console.log("Multiplicand: ", multiplicandMin, " to ", multiplicandMax);
+    console.log("Multiplier: ", multiplierMin, " to ", multiplierMax);
+    console.log("Multiplicand: ", multiplicandMin, " to ", multiplicandMax);
 
     var valid = true;
     var multiplierError = document.getElementById('multiplier-error');
     var multiplicandError = document.getElementById('multiplicand-error');
 
-    if(multiplierMin == "")
+    if(isNaN(multiplierMin) || isNaN(multiplierMax))
     {
-        document.getElementById('multiplier-min').focus();
-        multiplierError.textContent = "This field is required.";
+        console.log("HERERE");
+        multiplierError.textContent = "ERROR: The inputs must be a numerical value.";
         valid = false;
     }
     else
     {
+        console.log("HERE");
         multiplierError.textContent = "";
-        valid = true;   
+        valid = true;
     }
-    if(isNaN(multiplierMin))
+    if(isNaN(multiplicandMin) || isNaN(multiplicandMax))
     {
-        document.getElementById('multiplier-min').focus();
-        multiplierError.textContent = "This field must be a numerical number &isin [-50, 50].";
-        valid = false;
+        console.log("HERERE_multiplicant");
+    
+        multiplicandError.textContent = "ERROR: The inputs must be a numerical value.";
+        console.log(multiplicandError.textContent);
+        valid = false
     }
     else
     {
-        multiplierError.textContent = "";
-        valid = true;   
-    }
-    if(multiplierMax == "")
-    {
-        multiplierError.textContent = "This field is required.";
-        valid = false;
-    }
-    else
-    {
-        multiplierError.textContent = "";
-        valid = true;   
+        multiplicandError.textContent = "";
+        valid = true;
     }
     if(multiplierMin > multiplierMax)
     {
@@ -75,16 +68,16 @@ function validate(multiplierMin, multiplierMax, multiplicandMin, multiplicandMax
 
 function buildTable()
 {
-    var minX = document.getElementById('multiplier-min').value;
-    var maxX = document.getElementById('multiplier-max').value;
-    var minY = document.getElementById('multiplicand-min').value;
-    var maxY = document.getElementById('multiplicand-max').value;
+    var minX = parseInt(document.getElementById('multiplier-min').value, 10);
+    var maxX = parseInt(document.getElementById('multiplier-max').value);
+    var minY = parseInt(document.getElementById('multiplicand-min').value, 10);
+    var maxY = parseInt(document.getElementById('multiplicand-max').value, 10);
 
-    /*var accept = validate(minX, maxX, minY, maxY);
+    var accept = validate(minX, maxX, minY, maxY);
     if(accept == false)
     {
-        return;
-    }*/
+        event.preventDefault();
+    }
 
     var table = "";
     table += "<table>";
@@ -98,7 +91,7 @@ function buildTable()
         {
             if(headerX == true)
             {
-                table += "<th>";
+                table += "<th class='xHeader'>";
                 if(headerY == false)
                 {
                     table += column + "</th>";
@@ -108,12 +101,12 @@ function buildTable()
             {
                 if(headerY == true)
                 {
-                    table += "<th>" + row + "</th>";
+                    table += "<th class='yHeader'>" + row + "</th>";
                     
                 }
                 else
                 {
-                    table += "<td>" + (row*column) + "</td>";
+                    table += "<td class='table-body'>" + (row*column) + "</td>";
                 }
             }
             headerY = false;

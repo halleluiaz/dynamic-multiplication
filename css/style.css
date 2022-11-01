@@ -80,7 +80,7 @@ input {
 table,
 th,
 td {
-    border: 1px solid #8E3200;
+    border: 2px solid #8E3200;
     text-align: center;
 }
 
@@ -94,15 +94,26 @@ table tr:nth-child(odd) td:nth-child(even) {
     background-color: #f5c04d;
 }
 
+#multiplication-table {
+    max-height: 550px;
+    overflow: scroll;
+}
+
 table {
     margin-left: auto;
     margin-right: auto;
-    max-width: 900px;
-    max-height: 1100px;
+    border-collapse: collapse;
+    outline-color: #8E3200;
 }
 
 table th {
-    background-color: #333333;
-    color: #f3b225; /* Orangish */
-    margin: 0;
+    background-color: #000000;
+    color: #f3b225;
 }
+
+/*tr+th.xHeader {
+    position: sticky;
+    top: 0%;
+    left: 0%;
+    z-index: 2;
+}*/
