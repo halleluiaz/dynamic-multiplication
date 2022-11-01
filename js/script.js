@@ -9,24 +9,56 @@ updated by HZ on October 19, 2022 at 2PM
 
 Purpose:
 */
-
-function validate()
+function alwaysFalse()
 {
-    validForm = false;
-
-    multiplierMin = document.getElementById("multiplier-min").value;
-    multiplierMax = document.getElementById("multiplier-max").value;
-    if(multiplierMin > multiplierMax)
-    {
-        error = document.getElementById("multiplier-error");
-        error.textContent = "ERROR: The minimum must be less than or equal to the maximum";
-        console.log(multiplierMin, " ,", multiplierMax);
-    }
-
     return false;
 }
+
+function validate(multiplierMin, multiplierMax, multiplicandMin, multiplicandMax)
+{
+    console.log("Multiplier: ", multiplierMin, " to ", multiplierMax);
+    console.log("Multiplicand: ", multiplicandMin, " to ", multiplicandMax);
+
+    var valid = true;
+    var multiplierError = document.getElementById('multiplier-error');
+    var multiplicandError = document.getElementById('multiplicand-error');
+
+    if(multiplierMin > multiplierMax)
+    {
+        multiplierError.textContent = "ERROR: The minimum must be less than or equal to the maximum";
+        valid = false
+    }
+    else
+    {
+        multiplierError.textContent = "";
+        valid = true;
+    }
+    if(multiplicandMin > multiplicandMax)
+    {
+        multiplicandError.textContent = "ERROR: The minimum must be less than or equal to the maximum";
+        valid = false
+    }
+    else
+    {
+        multiplicandError.textContent = "";
+        valid = true;
+    }
+    return valid;
+}
+
+function buildTable()
+{
+    var horizMin = Number(document.getElementById('multiplier-min').value);
+    var horizMax = Number(document.getElementById('multiplier-max').value);
+    var vertMin = Number(document.getElementById('multiplicand-min').value);
+    var vertMax = Number(document.getElementById('multiplicand-max').value);
+
+    validate(horizMin, horizMax, vertMin, vertMax);
+}
+/*
 function generateTable(multiplierMin, multiplierMax, multiplicandMin, multiplicandMax)
 {
+    
     var table = document.createElement('table');
     table.id = 'table';
     var headerX = true;  //  keeps track of table cells in first row
@@ -71,4 +103,4 @@ function generateTable(multiplierMin, multiplierMax, multiplicandMin, multiplica
     }
 
     return table
-}
+}*/
