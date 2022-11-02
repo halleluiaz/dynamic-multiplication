@@ -1,0 +1,3 @@
+Link to repository: https://github.com/halleluiaz/dynamic-multiplication
+
+Link to website: https://halleluiaz.github.io/dynamic-multiplication/index.html
