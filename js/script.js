@@ -9,6 +9,8 @@ updated by HZ on November 1, 2022 at 11PM
 
 Purpose: This scripts contains the functions that builds the dynamic multiplication
 table from user input and validates the user input.
+
+Discussed debugging validate(..) with grader Jennifer R.
 */
 
 /*
