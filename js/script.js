@@ -11,9 +11,6 @@ Purpose:
 */
 function validate(multiplierMin, multiplierMax, multiplicandMin, multiplicandMax)
 {
-    console.log("Multiplier: ", multiplierMin, " to ", multiplierMax);
-    console.log("Multiplicand: ", multiplicandMin, " to ", multiplicandMax);
-
     var valid = true;
     var multiplierError = document.getElementById('multiplier-error');
     var multiplicandError = document.getElementById('multiplicand-error');
@@ -22,45 +19,37 @@ function validate(multiplierMin, multiplierMax, multiplicandMin, multiplicandMax
 
     if(isNaN(multiplierMin) || isNaN(multiplierMax))
     {
-        console.log("HERERE");
-        multiplierError.textContent += "\nERROR: The inputs must be a numerical value.";
+        multiplierError.textContent += "\nERROR: The inputs must be a whole, numerical value.";
         valid = false;
     }
 
     if(isNaN(multiplicandMin) || isNaN(multiplicandMax))
     {
-        console.log("HERERE_multiplicant");
-    
-        multiplicandError.textContent += "\nERROR: The inputs must be a numerical value.";
-        console.log(multiplicandError.textContent);
+        multiplicandError.textContent += "\nERROR: The inputs must be a whole, numerical value.";
         valid = false;
     }
 
     if(multiplierMin > 50 || multiplierMin < -50)
     {
-        console.log("X AXIS GOT SOME SHIT OUTTA BOUNDS FRFR");
-        multiplierError.textContent += "\nERROR: Min input must be from -50 to 50."
+        multiplierError.textContent += "\nERROR: Minimum must be from -50 to 50."
         valid = false;
     }
 
     if(multiplierMax > 50 || multiplierMax < -50)
     {
-        console.log("X AXIS GOT SOME SHIT OUTTA BOUNDS FRFR");
-        multiplierError.textContent += "\nERROR: Max input must be from -50 to 50."
+        multiplierError.textContent += "\nERROR: Maximum must be from -50 to 50."
         valid = false;
     }
 
     if(multiplicandMin > 50 || multiplicandMin < -50)
     {
-        console.log("Y AXIS GOT SOME SHIT OUTTA BOUNDS FRFR");
-        multiplicandError.textContent += "\nERROR: Min input must be from -50 to 50."
+        multiplicandError.textContent += "\nERROR: Minimum must be from -50 to 50."
         valid = false;
     }
 
     if(multiplicandMax > 50 || multiplicandMax < -50)
     {
-        console.log("Y AXIS GOT SOME SHIT OUTTA BOUNDS FRFR");
-        multiplicandError.textContent += "\nERROR: Max input must be from -50 to 50."
+        multiplicandError.textContent += "\nERROR: Maximum must be from -50 to 50."
         valid = false;
     }
 
