@@ -17,79 +17,65 @@ function validate(multiplierMin, multiplierMax, multiplicandMin, multiplicandMax
     var valid = true;
     var multiplierError = document.getElementById('multiplier-error');
     var multiplicandError = document.getElementById('multiplicand-error');
+    multiplierError.textContent = "";
+    multiplicandError.textContent = "";
 
     if(isNaN(multiplierMin) || isNaN(multiplierMax))
     {
         console.log("HERERE");
-        multiplierError.textContent = "ERROR: The inputs must be a numerical value.";
+        multiplierError.textContent += "\nERROR: The inputs must be a numerical value.";
         valid = false;
-        //return valid;
     }
-    else
-    {
-        console.log("HERE");
-        multiplierError.textContent = "";
-        //valid = true;
-    }
+
     if(isNaN(multiplicandMin) || isNaN(multiplicandMax))
     {
         console.log("HERERE_multiplicant");
     
-        multiplicandError.textContent = "ERROR: The inputs must be a numerical value.";
+        multiplicandError.textContent += "\nERROR: The inputs must be a numerical value.";
         console.log(multiplicandError.textContent);
         valid = false;
-        //return valid;
     }
-    else
-    {
-        multiplicandError.textContent = "";
-        //valid = true;
-    }
+
     if(multiplierMin > 50 || multiplierMin < -50)
     {
-        multiplierError.textContent = "ERROR: Input must be from -50 to 50."
+        console.log("X AXIS GOT SOME SHIT OUTTA BOUNDS FRFR");
+        multiplierError.textContent += "\nERROR: Min input must be from -50 to 50."
         valid = false;
-        //return valid;
     }
-    else
+
+    if(multiplierMax > 50 || multiplierMax < -50)
     {
-        multiplierError.textContent = "";
-        //valid = true;
+        console.log("X AXIS GOT SOME SHIT OUTTA BOUNDS FRFR");
+        multiplierError.textContent += "\nERROR: Max input must be from -50 to 50."
+        valid = false;
     }
+
     if(multiplicandMin > 50 || multiplicandMin < -50)
     {
         console.log("Y AXIS GOT SOME SHIT OUTTA BOUNDS FRFR");
-        multiplicandError.textContent = "ERROR: Input must be from -50 to 50."
+        multiplicandError.textContent += "\nERROR: Min input must be from -50 to 50."
         valid = false;
-        //return valid;
     }
-    else
+
+    if(multiplicandMax > 50 || multiplicandMax < -50)
     {
-        multiplicandError.textContent = "";
-        //valid = true;
+        console.log("Y AXIS GOT SOME SHIT OUTTA BOUNDS FRFR");
+        multiplicandError.textContent += "\nERROR: Max input must be from -50 to 50."
+        valid = false;
     }
+
     if(multiplierMin > multiplierMax)
     {
-        multiplierError.textContent = "ERROR: The minimum must be less than or equal to the maximum.";
+        multiplierError.textContent = "\nERROR: The minimum must be less than or equal to the maximum.";
         valid = false
-        //return valid;
     }
-    else
-    {
-        multiplierError.textContent = "";
-        //valid = true;
-    }
+
     if(multiplicandMin > multiplicandMax)
     {
-        multiplicandError.textContent = "ERROR: The minimum must be less than or equal to the maximum.";
+        multiplicandError.textContent += "\nERROR: The minimum must be less than or equal to the maximum.";
         valid = false
-        r//eturn valid;
     }
-    else
-    {
-        multiplicandError.textContent = "";
-        //valid = true;
-    }
+
     return valid;
 }
 
@@ -104,45 +90,48 @@ function buildTable()
     console.log(accept);
     if(accept == true)
     {
-        var table = "";
-        table += "<table>";
-        var headerX = true;
-        var headerY = true;
+        //event.preventDefault();
+    var table = "";
+    table += "<table>";
+    var headerX = true;
+    var headerY = true;
 
-        for(var row = minY - 1; row<= maxY; row++)
+    for(var row = minY - 1; row<= maxY; row++)
+    {
+        table += "<tr>";
+        for(var column = minX - 1; column <= maxX; column++)
         {
-            table += "<tr>";
-            for(var column = minX - 1; column <= maxX; column++)
+            if(headerX == true)
             {
-                if(headerX == true)
+                table += "<th class='xHeader'>";
+                if(headerY == false)
                 {
-                    table += "<th class='xHeader'>";
-                    if(headerY == false)
-                    {
-                        table += column + "</th>";
-                    }
+                    table += column + "</th>";
+                }
+            }
+            else
+            {
+                if(headerY == true)
+                {
+                    table += "<th class='yHeader'>" + row + "</th>";
+                    
                 }
                 else
                 {
-                    if(headerY == true)
-                    {
-                        table += "<th class='yHeader'>" + row + "</th>";
-                        
-                    }
-                    else
-                    {
-                        table += "<td class='table-body'>" + (row*column) + "</td>";
-                    }
+                    table += "<td class='table-body'>" + (row*column) + "</td>";
                 }
-                headerY = false;
             }
-            table += "</tr>";
-            headerX = false;
-            headerY = true;
+            headerY = false;
         }
-        table += "</table>";
-        document.getElementById('multiplication-table').innerHTML = table;
+        table += "</tr>";
+        headerX = false;
+        headerY = true;
     }
+    table += "</table>";
+    document.getElementById('multiplication-table').innerHTML = table;
+    }
+
+
 
     event.preventDefault();
 }

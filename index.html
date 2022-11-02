@@ -7,7 +7,9 @@ Copyright (c) 2022 by Halleluia Zeyohannes. All rights reserved. May be freely
 copied or excerpted for educational purposes with credit to the author.
 updated by HZ on October 31, 2022 at 11PM
 
-Purpose:
+Purpose: All structure minus the dynamic table for the website is defined here.
+Makes use of attributes to give unique identifiers to elements so that they can
+be easily accessed by the script for reading and making changes.
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -42,7 +44,7 @@ Purpose:
                   <br>
                   <span id="multiplicand-error"></span>
               </fieldset>
-              <input type="submit" value="Create Your Table" onclick="buildTable();">
+              <input type="button" value="Create Your Table" onclick="buildTable();">
           </form>
 
           <div id="multiplication-table"></div>

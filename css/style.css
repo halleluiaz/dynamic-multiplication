@@ -58,17 +58,17 @@ input {
     margin-right: 15px;
 }
 
-#form input[type="submit"] {
+#form input[type="button"] {
     color: #8E3200;
     background-color: #ffffff;
     font-weight: bold;
 }
 
-#form input[type="submit"]:hover {
+#form input[type="button"]:hover {
     background-color: #f5c04d;
 }
 
-#form input[type="submit"]:active {
+#form input[type="button"]:active {
     background-color: #000000;
     color: #ffffff;
 }
