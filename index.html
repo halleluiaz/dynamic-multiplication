@@ -29,10 +29,12 @@ be easily accessed by the script for reading and making changes.
               <fieldset>
                   <legend>Multiplier Range(Horizontal Axis)</legend>
                   <label for="multiplier-min">Minimum</label>
+                  <!--HTML constraints on input to help with input validation-->
                   <input type="number" name="multiplier-min" id="multiplier-min" min="-50" max="50" required>
                   <label for="multiplier-max">Maximum</label>
                   <input type="number" name="multiplier-max" id="multiplier-max" min="-50" max="50" required>
                   <br>
+                  <!--Error messages related to multiplier will be inserted here by script.js-->
                   <span id="multiplier-error"></span>
               </fieldset>
               <fieldset>
@@ -42,11 +44,14 @@ be easily accessed by the script for reading and making changes.
                   <label for="multiplicand-max">Maximum</label>
                   <input type="number" name="multiplicand-max" id="multiplicand-max" min="-50" max="50" required>
                   <br>
+                  <!--Error messages related to multiplicand will be inserted here by script.js-->
                   <span id="multiplicand-error"></span>
               </fieldset>
+              <!--Type button to ensure page will not reload onclick, call function to generate table onclick-->
               <input type="button" value="Create Your Table" onclick="buildTable();">
           </form>
 
+          <!--Multiplication table will be inserted here by script.js-->
           <div id="multiplication-table"></div>
      </div>
   </body>
